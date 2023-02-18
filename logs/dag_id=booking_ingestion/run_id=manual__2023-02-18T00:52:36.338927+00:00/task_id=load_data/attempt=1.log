@@ -1,0 +1,40 @@
+[2023-02-18T00:52:39.638+0000] {taskinstance.py:1083} INFO - Dependencies all met for <TaskInstance: booking_ingestion.load_data manual__2023-02-18T00:52:36.338927+00:00 [queued]>
+[2023-02-18T00:52:39.644+0000] {taskinstance.py:1083} INFO - Dependencies all met for <TaskInstance: booking_ingestion.load_data manual__2023-02-18T00:52:36.338927+00:00 [queued]>
+[2023-02-18T00:52:39.646+0000] {taskinstance.py:1279} INFO - 
+--------------------------------------------------------------------------------
+[2023-02-18T00:52:39.648+0000] {taskinstance.py:1280} INFO - Starting attempt 1 of 1
+[2023-02-18T00:52:39.649+0000] {taskinstance.py:1281} INFO - 
+--------------------------------------------------------------------------------
+[2023-02-18T00:52:39.657+0000] {taskinstance.py:1300} INFO - Executing <Task(PythonOperator): load_data> on 2023-02-18 00:52:36.338927+00:00
+[2023-02-18T00:52:39.663+0000] {standard_task_runner.py:55} INFO - Started process 978 to run task
+[2023-02-18T00:52:39.667+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'booking_ingestion', 'load_data', 'manual__2023-02-18T00:52:36.338927+00:00', '--job-id', '277', '--raw', '--subdir', 'DAGS_FOLDER/data_ingestion_dag/main.py', '--cfg-path', '/tmp/tmpbmss30b7']
+[2023-02-18T00:52:39.668+0000] {standard_task_runner.py:83} INFO - Job 277: Subtask load_data
+[2023-02-18T00:52:39.733+0000] {task_command.py:388} INFO - Running <TaskInstance: booking_ingestion.load_data manual__2023-02-18T00:52:36.338927+00:00 [running]> on host d92f32803fb9
+[2023-02-18T00:52:39.785+0000] {taskinstance.py:1509} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=booking_ingestion
+AIRFLOW_CTX_TASK_ID=load_data
+AIRFLOW_CTX_EXECUTION_DATE=2023-02-18T00:52:36.338927+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-02-18T00:52:36.338927+00:00
+[2023-02-18T00:52:39.788+0000] {taskinstance.py:1768} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 175, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 192, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/data_ingestion_dag/main.py", line 52, in load_data
+    database="airflow")
+  File "/home/airflow/.local/lib/python3.7/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: could not connect to server: No such file or directory
+	Is the server running locally and accepting
+	connections on Unix domain socket "/var/run/postgresql/.s.PGSQL.5432"?
+
+[2023-02-18T00:52:39.799+0000] {taskinstance.py:1323} INFO - Marking task as FAILED. dag_id=booking_ingestion, task_id=load_data, execution_date=20230218T005236, start_date=20230218T005239, end_date=20230218T005239
+[2023-02-18T00:52:39.807+0000] {standard_task_runner.py:105} ERROR - Failed to execute job 277 for task load_data (could not connect to server: No such file or directory
+	Is the server running locally and accepting
+	connections on Unix domain socket "/var/run/postgresql/.s.PGSQL.5432"?
+; 978)
+[2023-02-18T00:52:39.840+0000] {local_task_job.py:208} INFO - Task exited with return code 1
+[2023-02-18T00:52:39.857+0000] {taskinstance.py:2578} INFO - 0 downstream tasks scheduled from follow-on schedule check

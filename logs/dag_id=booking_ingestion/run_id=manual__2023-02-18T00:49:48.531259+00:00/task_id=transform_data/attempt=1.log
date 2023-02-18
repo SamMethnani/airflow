@@ -1,0 +1,26 @@
+[2023-02-18T00:49:49.373+0000] {taskinstance.py:1083} INFO - Dependencies all met for <TaskInstance: booking_ingestion.transform_data manual__2023-02-18T00:49:48.531259+00:00 [queued]>
+[2023-02-18T00:49:49.380+0000] {taskinstance.py:1083} INFO - Dependencies all met for <TaskInstance: booking_ingestion.transform_data manual__2023-02-18T00:49:48.531259+00:00 [queued]>
+[2023-02-18T00:49:49.381+0000] {taskinstance.py:1279} INFO - 
+--------------------------------------------------------------------------------
+[2023-02-18T00:49:49.382+0000] {taskinstance.py:1280} INFO - Starting attempt 1 of 1
+[2023-02-18T00:49:49.383+0000] {taskinstance.py:1281} INFO - 
+--------------------------------------------------------------------------------
+[2023-02-18T00:49:49.392+0000] {taskinstance.py:1300} INFO - Executing <Task(PythonOperator): transform_data> on 2023-02-18 00:49:48.531259+00:00
+[2023-02-18T00:49:49.401+0000] {standard_task_runner.py:55} INFO - Started process 774 to run task
+[2023-02-18T00:49:49.405+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'booking_ingestion', 'transform_data', 'manual__2023-02-18T00:49:48.531259+00:00', '--job-id', '269', '--raw', '--subdir', 'DAGS_FOLDER/data_ingestion_dag/main.py', '--cfg-path', '/tmp/tmp05a4dbzy']
+[2023-02-18T00:49:49.406+0000] {standard_task_runner.py:83} INFO - Job 269: Subtask transform_data
+[2023-02-18T00:49:49.472+0000] {task_command.py:388} INFO - Running <TaskInstance: booking_ingestion.transform_data manual__2023-02-18T00:49:48.531259+00:00 [running]> on host d92f32803fb9
+[2023-02-18T00:49:49.526+0000] {taskinstance.py:1509} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=booking_ingestion
+AIRFLOW_CTX_TASK_ID=transform_data
+AIRFLOW_CTX_EXECUTION_DATE=2023-02-18T00:49:48.531259+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-02-18T00:49:48.531259+00:00
+[2023-02-18T00:49:49.556+0000] {warnings.py:110} WARNING - /opt/***/dags/data_ingestion_dag/main.py:41: FutureWarning: In a future version of pandas all arguments of DataFrame.drop except for the argument 'labels' will be keyword-only
+  data = data.drop('address', 1)
+
+[2023-02-18T00:49:49.565+0000] {python.py:177} INFO - Done. Returned value was: None
+[2023-02-18T00:49:49.575+0000] {taskinstance.py:1323} INFO - Marking task as SUCCESS. dag_id=booking_ingestion, task_id=transform_data, execution_date=20230218T004948, start_date=20230218T004949, end_date=20230218T004949
+[2023-02-18T00:49:49.617+0000] {local_task_job.py:208} INFO - Task exited with return code 0
+[2023-02-18T00:49:49.641+0000] {taskinstance.py:2578} INFO - 1 downstream tasks scheduled from follow-on schedule check
